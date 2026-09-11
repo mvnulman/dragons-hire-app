@@ -1,0 +1,156 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum DragonStatus {
+  AVAILABLE
+  RESERVED
+  ON_MISSION
+  RESTING
+  IN_TRAINING
+  INJURED
+  UNAVAILABLE
+}
+
+enum Temperament {
+  CALM
+  FRIENDLY
+  UNPREDICTABLE
+  AGGRESSIVE
+}
+
+enum RiskLevel {
+  LOW
+  MEDIUM
+  HIGH
+  EXTREME
+}
+
+enum MissionType {
+  TRANSPORT
+  CARGO
+  PATROL
+  EXPLORATION
+  RESCUE
+  CEREMONIAL
+}
+
+enum MissionStatus {
+  DRAFT
+  PENDING
+  SCHEDULED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+enum BookingStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+}
+
+model DragonSpecies {
+  id          Int     @id @default(autoincrement())
+  name        String  @unique
+  description String?
+
+  dragons Dragon[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Dragon {
+  id             Int     @id @default(autoincrement())
+  name           String
+  age            Int
+  weightKg       Int
+  maxLoadKg      Int
+  flightSpeedKmH Int
+  hourlyRate     Decimal @db.Decimal(10, 2)
+  restHours      Int     @default(4)
+
+  temperament  Temperament
+  maxRiskLevel RiskLevel
+  status       DragonStatus @default(AVAILABLE)
+
+  speciesId Int
+  species   DragonSpecies @relation(fields: [speciesId], references: [id])
+
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([speciesId])
+  @@index([status])
+}
+
+model Client {
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String  @unique
+  phone String?
+
+  missions Mission[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Mission {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String?
+
+  type      MissionType
+  riskLevel RiskLevel
+  status    MissionStatus @default(DRAFT)
+
+  loadWeightKg   Int?
+  passengerCount Int  @default(0)
+
+  startAt DateTime
+  endAt   DateTime
+
+  clientId Int
+  client   Client @relation(fields: [clientId], references: [id])
+
+  bookings Booking[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([clientId])
+  @@index([status])
+  @@index([startAt, endAt])
+}
+
+model Booking {
+  id Int @id @default(autoincrement())
+
+  status BookingStatus @default(PENDING)
+
+  hourlyRateSnapshot Decimal @db.Decimal(10, 2)
+  totalPrice         Decimal @db.Decimal(10, 2)
+
+  missionId Int
+  mission   Mission @relation(fields: [missionId], references: [id])
+
+  dragonId Int
+  dragon   Dragon @relation(fields: [dragonId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([missionId, dragonId])
+  @@index([dragonId])
+  @@index([missionId])
+}
