@@ -15,8 +15,11 @@ describe('AppController', () => {
   });
 
   describe('root', () => {
-    it('should return "Hello World!"', () => {
-      expect(appController.getHello()).toBe('Hello World!');
+    it('describes the API', () => {
+      expect(appController.getApiInfo()).toMatchObject({
+        name: 'Dragons Hire API',
+        docs: '/docs',
+      });
     });
   });
 });
