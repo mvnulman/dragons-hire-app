@@ -1,0 +1,101 @@
+{
+  "brand": {
+    "name": "Dragons Hire",
+    "tagline": "O dragão certo para a missão certa."
+  },
+  "nav": {
+    "dragons": "Dragões",
+    "howItWorks": "Como funciona",
+    "missions": "Minhas missões",
+    "signIn": "Entrar",
+    "signOut": "Sair"
+  },
+  "hero": {
+    "eyebrow": "Aluguel de dragões desde 1347",
+    "title": "O dragão certo para a missão certa.",
+    "subtitle": "Descreva a carga, a rota e o risco. Nós comparamos velocidade, alcance, temperamento e disponibilidade — e só então você escolhe.",
+    "primaryCta": "Encontrar um dragão",
+    "secondaryCta": "Como funciona"
+  },
+  "stats": {
+    "dragons": "dragões na frota",
+    "species": "linhagens catalogadas",
+    "cities": "cidades atendidas"
+  },
+  "signals": {
+    "price": {
+      "title": "Preço fechado na hora",
+      "description": "Calculado no servidor com risco, distância e carga. Sem surpresa no checkout."
+    },
+    "hold": {
+      "title": "Reserva que segura o dragão",
+      "description": "Quinze minutos para confirmar. Depois disso o dragão volta para a frota."
+    },
+    "score": {
+      "title": "Recomendação com justificativa",
+      "description": "Cada dragão vem com o motivo de estar ali — e o que ele custa de verdade."
+    }
+  },
+  "howItWorks": {
+    "title": "Três passos até o embarque",
+    "subtitle": "Sem planilhas, sem ligações, sem dragão errado.",
+    "steps": {
+      "describe": {
+        "title": "Descreva a missão",
+        "description": "Carga, passageiros, distância e nível de risco. O formulário leva dois minutos."
+      },
+      "match": {
+        "title": "Receba o ranking",
+        "description": "Ranqueamos cada dragão disponível com score e a justificativa de por que ele serve."
+      },
+      "book": {
+        "title": "Reserve e voe",
+        "description": "Preço fechado na hora. A reserva segura o dragão por 15 minutos enquanto você confirma."
+      }
+    }
+  },
+  "featured": {
+    "title": "Frota em destaque",
+    "subtitle": "Cada ficha traz o que importa: carga, alcance, temperamento e preço por hora.",
+    "viewAll": "Ver frota completa",
+    "empty": "Não foi possível carregar a frota agora."
+  },
+  "dragon": {
+    "load": "Carga máx.",
+    "range": "Alcance",
+    "speed": "Velocidade",
+    "capacity": "Passageiros",
+    "rate": "por hora",
+    "temperament": "Temperamento",
+    "risk": "Risco máx.",
+    "health": "Saúde",
+    "rest": "Descanso",
+    "hours": "h",
+    "unavailable": "Indisponível"
+  },
+  "temperament": {
+    "CALM": "Calmo",
+    "FRIENDLY": "Dócil",
+    "UNPREDICTABLE": "Imprevisível",
+    "AGGRESSIVE": "Agressivo"
+  },
+  "risk": {
+    "LOW": "Baixo",
+    "MEDIUM": "Médio",
+    "HIGH": "Alto",
+    "EXTREME": "Extremo"
+  },
+  "status": {
+    "AVAILABLE": "Disponível",
+    "RESERVED": "Reservado",
+    "ON_MISSION": "Em missão",
+    "RESTING": "Descansando",
+    "IN_TRAINING": "Em treino",
+    "INJURED": "Ferido",
+    "UNAVAILABLE": "Indisponível"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados.",
+    "note": "Nenhum dragão foi ferido na construção deste site."
+  }
+}

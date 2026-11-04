@@ -1,0 +1,101 @@
+{
+  "brand": {
+    "name": "Dragons Hire",
+    "tagline": "The right dragon for the right mission."
+  },
+  "nav": {
+    "dragons": "Dragons",
+    "howItWorks": "How it works",
+    "missions": "My missions",
+    "signIn": "Sign in",
+    "signOut": "Sign out"
+  },
+  "hero": {
+    "eyebrow": "Dragon hire since 1347",
+    "title": "The right dragon for the right mission.",
+    "subtitle": "Describe the cargo, the route and the risk. We compare speed, range, temperament and availability — then you choose.",
+    "primaryCta": "Find a dragon",
+    "secondaryCta": "How it works"
+  },
+  "stats": {
+    "dragons": "dragons in the fleet",
+    "species": "lineages catalogued",
+    "cities": "cities served"
+  },
+  "signals": {
+    "price": {
+      "title": "Price locked on the spot",
+      "description": "Calculated server-side from risk, distance and load. No surprise at checkout."
+    },
+    "hold": {
+      "title": "A booking that holds the dragon",
+      "description": "Fifteen minutes to confirm. After that the dragon returns to the fleet."
+    },
+    "score": {
+      "title": "Recommendations with reasons",
+      "description": "Every dragon comes with why it is there — and what it actually costs."
+    }
+  },
+  "howItWorks": {
+    "title": "Three steps to takeoff",
+    "subtitle": "No spreadsheets, no phone calls, no wrong dragon.",
+    "steps": {
+      "describe": {
+        "title": "Describe the mission",
+        "description": "Cargo, passengers, distance and risk level. The form takes two minutes."
+      },
+      "match": {
+        "title": "Get the ranking",
+        "description": "Every available dragon is scored and justified, so you know why it fits."
+      },
+      "book": {
+        "title": "Book and fly",
+        "description": "Price locked on the spot. The booking holds the dragon for 15 minutes while you confirm."
+      }
+    }
+  },
+  "featured": {
+    "title": "Featured fleet",
+    "subtitle": "Each sheet shows what matters: load, range, temperament and hourly rate.",
+    "viewAll": "See the full fleet",
+    "empty": "The fleet could not be loaded right now."
+  },
+  "dragon": {
+    "load": "Max load",
+    "range": "Range",
+    "speed": "Speed",
+    "capacity": "Passengers",
+    "rate": "per hour",
+    "temperament": "Temperament",
+    "risk": "Max risk",
+    "health": "Health",
+    "rest": "Rest",
+    "hours": "h",
+    "unavailable": "Unavailable"
+  },
+  "temperament": {
+    "CALM": "Calm",
+    "FRIENDLY": "Friendly",
+    "UNPREDICTABLE": "Unpredictable",
+    "AGGRESSIVE": "Aggressive"
+  },
+  "risk": {
+    "LOW": "Low",
+    "MEDIUM": "Medium",
+    "HIGH": "High",
+    "EXTREME": "Extreme"
+  },
+  "status": {
+    "AVAILABLE": "Available",
+    "RESERVED": "Reserved",
+    "ON_MISSION": "On mission",
+    "RESTING": "Resting",
+    "IN_TRAINING": "In training",
+    "INJURED": "Injured",
+    "UNAVAILABLE": "Unavailable"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "note": "No dragon was harmed while building this website."
+  }
+}
