@@ -8,7 +8,8 @@
     "howItWorks": "How it works",
     "missions": "My missions",
     "signIn": "Sign in",
-    "signOut": "Sign out"
+    "signOut": "Sign out",
+    "credits": "Credits"
   },
   "hero": {
     "eyebrow": "Dragon hire since 1347",
@@ -93,6 +94,13 @@
     "IN_TRAINING": "In training",
     "INJURED": "Injured",
     "UNAVAILABLE": "Unavailable"
+  },
+  "credits": {
+    "eyebrow": "Provenance",
+    "title": "Art credits",
+    "subtitle": "All fleet artwork comes from the Wikimedia Commons public API. The acquisition pipeline queries the API, verifies the license, downloads the image, crops and recompresses it — then records this metadata.",
+    "viewSource": "View on Commons",
+    "note": "Every work is in the public domain. Metadata resolved through the Commons API and cached in src/content/art-credits.json."
   },
   "footer": {
     "rights": "All rights reserved.",

@@ -82,12 +82,20 @@ npm run dev               # http://localhost:3000
 
 ## Arte
 
-Toda a arte da frota são **iluminuras medievais em domínio público**, obtidas no Wikimedia Commons,
-recortadas em 900×650 (hero em 1600×700) e comprimidas em JPEG:
+Toda a arte da frota vem da **API pública do Wikimedia Commons**. O pipeline em
+`web/scripts/fetch-art.mjs`:
+
+1. resolve cada obra pelo título via `action=query&prop=imageinfo`;
+2. **valida a licença** (só aceita domínio público/CC0, falha se não bater);
+3. baixa a rendition de 1400px, recorta em 900×650 (hero em 1600×700) e comprime em JPEG;
+4. grava os metadados de procedência em `web/src/content/art-credits.json`.
 
 ```bash
-cd web && npm run art:fetch   # baixa, recorta e comprime novamente
+cd web && npm run art:fetch
 ```
+
+As imagens ficam cacheadas em `public/` para não depender da API em runtime, e a procedência
+aparece em **[/pt/credits](http://localhost:3000/pt/credits)** e `/en/credits`.
 
 | Dragão | Obra | Origem |
 | --- | --- | --- |

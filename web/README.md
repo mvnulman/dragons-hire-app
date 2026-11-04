@@ -32,7 +32,7 @@ public/art/           arte de fundo do hero
 | `npm run build` | Build de produção |
 | `npm run lint` | ESLint |
 | `npm run openapi` | Regenera `src/lib/api/schema.d.ts` a partir de `localhost:3001/docs-json` |
-| `npm run art:fetch` | Rebaixa e recomprime a arte medieval do Wikimedia Commons |
+| `npm run art:fetch` | Resolve a arte pela API do Wikimedia Commons, valida licença, recorta, comprime e atualiza `src/content/art-credits.json` |
 
 ## Proxy
 

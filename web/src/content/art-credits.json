@@ -1,0 +1,101 @@
+[
+  {
+    "slug": "ignis",
+    "name": "Ignis",
+    "image": "/dragons/ignis.jpg",
+    "title": "Dragon Detail, Folio 065v, Aberdeen Bestiary",
+    "artist": "Unknown artist",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:AberdeenBestiaryFolio065vDragonDetail.jpg"
+  },
+  {
+    "slug": "cinder",
+    "name": "Cinder",
+    "image": "/dragons/cinder.jpg",
+    "title": "Dragon Harley MS 3244",
+    "artist": "Unknown artist",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_Harley_MS_3244.png"
+  },
+  {
+    "slug": "pyrrha",
+    "name": "Pyrrha",
+    "image": "/dragons/pyrrha.jpg",
+    "title": "Sloane 278, folio 48v, Elephants, dragon, and mandrake",
+    "artist": "Hugo de Folieto",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sloane278_f.48v_Elephants%2CDragon%2CAndMandrake.jpg"
+  },
+  {
+    "slug": "tempest",
+    "name": "Tempest",
+    "image": "/dragons/tempest.jpg",
+    "title": "A dragon ca. 1270 Hugh of Fouilloy's Bestiary",
+    "artist": "Hugh of Fouilloy (French, about 1110 - about 1173/1174)",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_dragon_ca._1270_Hugh_of_Fouilloy's_Bestiary.jpg"
+  },
+  {
+    "slug": "zephyr",
+    "name": "Zephyr",
+    "image": "/dragons/zephyr.jpg",
+    "title": "Dragon of Tannin Island and Horned Rabit",
+    "artist": "Zakariya al-Qazwini",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Muhammad_ibn_Muhammad_Shakir_Ruzmah-'i_Nathani_-_Dragon_of_Tannin_Island_and_Horned_Rabit_-_Walters_W659155B_-_Full_Page.jpg"
+  },
+  {
+    "slug": "nimbus",
+    "name": "Nimbus",
+    "image": "/dragons/nimbus.jpg",
+    "title": "Ms. Ludwig XV 3 (83.MR.173), fol. 89 A Dragon, about 1270",
+    "artist": "Hugh of Fouilloy (French, about 1110 - about 1173/1174)",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ms._Ludwig_XV_3_(83.MR.173)%2C_fol._89_A_Dragon%2C_about_1270.jpg"
+  },
+  {
+    "slug": "ferrum",
+    "name": "Ferrum",
+    "image": "/dragons/ferrum.jpg",
+    "title": "Aurora consurgens zurich 044 f-21v-44 dragon-pot",
+    "artist": "GAllegre",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aurora_consurgens_zurich_044_f-21v-44_dragon-pot.jpg"
+  },
+  {
+    "slug": "bastion",
+    "name": "Bastion",
+    "image": "/dragons/bastion.jpg",
+    "title": "Aurora consurgens zurich 073 f-36r-73 dragon-ground",
+    "artist": "GAllegre",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aurora_consurgens_zurich_073_f-36r-73_dragon-ground.jpg"
+  },
+  {
+    "slug": "talos",
+    "name": "Talos",
+    "image": "/dragons/talos.jpg",
+    "title": "Aurora consurgens zurich 042 f-20v-42 dragon-ring",
+    "artist": "GAllegre",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aurora_consurgens_zurich_042_f-20v-42_dragon-ring.jpg"
+  },
+  {
+    "slug": "vesper",
+    "name": "Vesper",
+    "image": "/dragons/vesper.jpg",
+    "title": "Queen Mary Apocalypse - BL Royal MS 19 B XV f. 23 Beast and dragon",
+    "artist": "Anonymous",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Queen_Mary_Apocalypse_-_BL_Royal_MS_19_B_XV_f._23_Beast_and_dragon.jpg"
+  },
+  {
+    "slug": "hero",
+    "name": "Hero",
+    "image": "/art/hero-dragons.jpg",
+    "title": "Dragon 3244",
+    "artist": "Unknown artist",
+    "license": "Public domain",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Dragon_3244.jpg"
+  }
+]
