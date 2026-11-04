@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: dragons-hire-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dragons_hire
+    ports:
+      - '5432:5432'
+    volumes:
+      - dragons-hire-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U postgres -d dragons_hire']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  dragons-hire-data:
