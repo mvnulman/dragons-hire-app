@@ -108,5 +108,13 @@
   },
   "currency": {
     "name": "Drachm"
+  },
+  "account": {
+    "guest": "Guest",
+    "hint": "Accounts arrive in the next phase. Meanwhile, browse the fleet and the art credits.",
+    "signIn": "Sign in",
+    "open": "Open account menu",
+    "explore": "Browse the fleet",
+    "credits": "Art credits"
   }
 }

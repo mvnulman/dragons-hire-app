@@ -108,5 +108,13 @@
   },
   "currency": {
     "name": "Dracma"
+  },
+  "account": {
+    "guest": "Visitante",
+    "hint": "A conta chega na próxima fase. Até lá, explore a frota e os créditos da arte.",
+    "signIn": "Entrar",
+    "open": "Abrir menu da conta",
+    "explore": "Explorar frota",
+    "credits": "Créditos da arte"
   }
 }

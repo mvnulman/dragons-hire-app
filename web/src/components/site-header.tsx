@@ -1,6 +1,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import { AccountMenu } from '@/components/account-menu';
 import { BrandMark } from '@/components/brand-mark';
 import { LocaleSwitcher } from '@/components/locale-switcher';
 import { Link, usePathname } from '@/i18n/navigation';
@@ -37,12 +38,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <LocaleSwitcher />
-          <Link
-            href="/dragons"
-            className="hidden rounded-md bg-primary px-3.5 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 sm:block"
-          >
-            {t('signIn')}
-          </Link>
+          <AccountMenu />
         </div>
       </div>
     </header>
