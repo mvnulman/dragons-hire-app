@@ -7,6 +7,83 @@ datasource db {
   provider = "postgresql"
 }
 
+// ---------------------------------------------------------------------------
+// Auth (Better Auth) — managed by the auth library, do not rename columns.
+// ---------------------------------------------------------------------------
+
+model User {
+  id            String    @id
+  name          String
+  email         String
+  emailVerified Boolean   @default(false)
+  image         String?
+  role          String    @default("CLIENT")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions Session[]
+  accounts Account[]
+  missions Mission[]
+  reviews  Review[]
+
+  @@unique([email])
+  @@map("user")
+}
+
+model Session {
+  id        String   @id
+  expiresAt DateTime
+  token     String
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([token])
+  @@index([userId])
+  @@map("session")
+}
+
+model Account {
+  id                    String    @id
+  accountId             String
+  providerId            String
+  accessToken           String?
+  refreshToken          String?
+  idToken               String?
+  accessTokenExpiresAt  DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope                 String?
+  password              String?
+  createdAt             DateTime  @default(now())
+  updatedAt             DateTime  @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("account")
+}
+
+model Verification {
+  id         String    @id
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  @@index([identifier])
+  @@map("verification")
+}
+
+// ---------------------------------------------------------------------------
+// Domain
+// ---------------------------------------------------------------------------
+
 enum DragonStatus {
   AVAILABLE
   RESERVED
@@ -56,57 +133,100 @@ enum BookingStatus {
   COMPLETED
 }
 
+enum CargoType {
+  NONE
+  GOODS
+  LIVESTOCK
+  VALUABLES
+  HAZARDOUS
+  PASSENGERS
+}
+
+enum UnavailabilityReason {
+  REST
+  INJURY
+  TRAINING
+  MAINTENANCE
+}
+
 model DragonSpecies {
-  id          Int     @id @default(autoincrement())
-  name        String  @unique
-  description String?
+  id String @id @default(cuid())
+
+  slug String @unique
+
+  nameEn String
+  namePt String
+
+  descriptionEn String?
+  descriptionPt String?
 
   dragons Dragon[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@map("dragon_species")
 }
 
 model Dragon {
-  id             Int     @id @default(autoincrement())
+  id String @id @default(cuid())
+
   name           String
   age            Int
   weightKg       Int
   maxLoadKg      Int
+  passengerCapacity Int @default(1)
   flightSpeedKmH Int
+  flightRangeKm  Int
   hourlyRate     Decimal @db.Decimal(10, 2)
   restHours      Int     @default(4)
+  healthScore    Int     @default(100)
+  traits         String[]
+  imageUrl       String?
 
   temperament  Temperament
   maxRiskLevel RiskLevel
   status       DragonStatus @default(AVAILABLE)
 
-  speciesId Int
+  baseCity String
+  baseLat  Float
+  baseLng  Float
+
+  speciesId String
   species   DragonSpecies @relation(fields: [speciesId], references: [id])
 
-  bookings Booking[]
+  bookings       Booking[]
+  unavailabilities DragonUnavailability[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([speciesId])
   @@index([status])
+  @@map("dragon")
 }
 
-model Client {
-  id    Int     @id @default(autoincrement())
-  name  String
-  email String  @unique
-  phone String?
+model DragonUnavailability {
+  id String @id @default(cuid())
 
-  missions Mission[]
+  startAt DateTime
+  endAt   DateTime
+  reason  UnavailabilityReason
+  notes   String?
+
+  dragonId String
+  dragon   Dragon @relation(fields: [dragonId], references: [id], onDelete: Cascade)
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@index([dragonId, startAt, endAt])
+  @@map("dragon_unavailability")
 }
 
 model Mission {
-  id          Int     @id @default(autoincrement())
+  id String @id @default(cuid())
+
   title       String
   description String?
 
@@ -115,37 +235,52 @@ model Mission {
   status    MissionStatus @default(DRAFT)
 
   loadWeightKg   Int?
-  passengerCount Int  @default(0)
+  passengerCount Int @default(0)
+  cargoType      CargoType @default(NONE)
+
+  originName      String
+  originLat       Float
+  originLng       Float
+  destinationName String
+  destinationLat  Float
+  destinationLng  Float
+  distanceKm      Float
 
   startAt DateTime
   endAt   DateTime
 
-  clientId Int
-  client   Client @relation(fields: [clientId], references: [id])
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
 
   bookings Booking[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  @@index([clientId])
+  @@index([userId])
   @@index([status])
   @@index([startAt, endAt])
+  @@map("mission")
 }
 
 model Booking {
-  id Int @id @default(autoincrement())
+  id String @id @default(cuid())
 
   status BookingStatus @default(PENDING)
 
   hourlyRateSnapshot Decimal @db.Decimal(10, 2)
   totalPrice         Decimal @db.Decimal(10, 2)
 
-  missionId Int
-  mission   Mission @relation(fields: [missionId], references: [id])
+  holdExpiresAt   DateTime?
+  cancelledReason String?
 
-  dragonId Int
+  missionId String
+  mission   Mission @relation(fields: [missionId], references: [id], onDelete: Cascade)
+
+  dragonId String
   dragon   Dragon @relation(fields: [dragonId], references: [id])
+
+  review Review?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -153,4 +288,25 @@ model Booking {
   @@unique([missionId, dragonId])
   @@index([dragonId])
   @@index([missionId])
+  @@index([status, holdExpiresAt])
+  @@map("booking")
+}
+
+model Review {
+  id String @id @default(cuid())
+
+  rating  Int
+  comment String?
+
+  bookingId String @unique
+  booking   Booking @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([authorId])
+  @@map("review")
 }
