@@ -105,5 +105,8 @@
   "footer": {
     "rights": "All rights reserved.",
     "note": "No dragon was harmed while building this website."
+  },
+  "currency": {
+    "name": "Drachm"
   }
 }

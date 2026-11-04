@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
 import type { Dragon } from '@/lib/api/types';
-import { formatCurrency, formatNumber } from '@/lib/format';
+import { formatMoney, formatNumber } from '@/lib/format';
 import { cn } from '@/lib/utils';
 
 const RISK_ACCENT: Record<Dragon['maxRiskLevel'], string> = {
@@ -18,6 +18,7 @@ export function DragonCard({ dragon, locale }: { dragon: Dragon; locale: string 
   const temperament = useTranslations('temperament');
   const risk = useTranslations('risk');
   const status = useTranslations('status');
+  const currency = useTranslations('currency');
 
   const available = dragon.status === 'AVAILABLE';
 
@@ -103,8 +104,8 @@ export function DragonCard({ dragon, locale }: { dragon: Dragon; locale: string 
 
       <CardFooter className="flex items-end justify-between border-t border-border/60 pt-4">
         <div>
-          <p className="font-display text-xl leading-none">
-            {formatCurrency(dragon.hourlyRate, locale)}
+          <p className="font-display text-xl leading-none" title={currency('name')}>
+            {formatMoney(dragon.hourlyRate, locale)}
           </p>
           <p className="text-xs text-muted-foreground">{t('rate')}</p>
         </div>

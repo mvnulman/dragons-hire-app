@@ -105,5 +105,8 @@
   "footer": {
     "rights": "Todos os direitos reservados.",
     "note": "Nenhum dragão foi ferido na construção deste site."
+  },
+  "currency": {
+    "name": "Dracma"
   }
 }

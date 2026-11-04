@@ -40,7 +40,7 @@ export class DragonDto {
   @ApiProperty({ example: 400 })
   flightRangeKm!: number;
 
-  @ApiProperty({ example: '180.00', description: 'Hourly rate in EUR' })
+  @ApiProperty({ example: '180.00', description: 'Hourly rate in dracmas (₯)' })
   hourlyRate!: string;
 
   @ApiProperty({ example: 3 })

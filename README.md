@@ -5,6 +5,9 @@
 Marketplace de aluguel de dragões: você descreve a missão (carga, rota, risco, datas) e recebe
 um ranking de dragões disponíveis com **score e justificativa**, não uma lista aleatória.
 
+O reino negocia em **dracmas (₯)**. Os preços ficam como `Decimal` no banco e são formatados por
+locale no cliente (`Intl.NumberFormat`), sem símbolo de moeda real.
+
 ## Stack
 
 | Camada | Tecnologia |
